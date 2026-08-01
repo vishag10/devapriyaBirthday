@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 
 export default function BirthdayCake() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
   const [candlesOut, setCandlesOut] = useState(false);
   const [showWish, setShowWish] = useState(false);
 
@@ -12,7 +12,6 @@ export default function BirthdayCake() {
     if (candlesOut) return;
     setCandlesOut(true);
 
-    // Confetti burst
     const duration = 3000;
     const end = Date.now() + duration;
 
@@ -31,22 +30,34 @@ export default function BirthdayCake() {
     };
     frame();
 
-    // Show wish after a moment
     setTimeout(() => setShowWish(true), 1500);
   };
 
+  // Responsive cake width
+  const cakeWidth = 'clamp(220px, 60vw, 280px)';
+
   return (
-    <section className="py-20 px-4 md:px-8" id="cake" ref={ref}>
+    <section
+      className="px-4 sm:px-6 md:px-8"
+      style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)' }}
+      id="cake"
+      ref={ref}
+    >
       <div className="max-w-2xl mx-auto text-center">
         {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mb-12"
+          className="mb-8 sm:mb-12"
         >
-          <span className="text-4xl mb-3 block">🎂</span>
-          <h2 className="section-title text-3xl md:text-5xl mb-3">Birthday Cake</h2>
+          <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 block">🎂</span>
+          <h2
+            className="section-title mb-2 sm:mb-3"
+            style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
+          >
+            Birthday Cake
+          </h2>
         </motion.div>
 
         {/* Cake */}
@@ -54,12 +65,15 @@ export default function BirthdayCake() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.3, type: 'spring', stiffness: 150 }}
-          className="relative inline-block mb-10"
+          className="relative inline-block mb-8 sm:mb-10"
         >
-          {/* Cake container */}
-          <div className="relative" style={{ width: 280, margin: '0 auto' }}>
+          {/* Cake container - responsive width */}
+          <div className="relative mx-auto" style={{ width: cakeWidth }}>
             {/* Candles */}
-            <div className="flex justify-center gap-5 mb-2 relative" style={{ height: 60 }}>
+            <div
+              className="flex justify-center mb-2 relative"
+              style={{ gap: 'clamp(10px, 3vw, 20px)', height: 'clamp(45px, 10vw, 60px)' }}
+            >
               {[0, 1, 2, 3, 4].map((i) => (
                 <div key={i} className="relative flex flex-col items-center">
                   {/* Flame */}
@@ -71,14 +85,15 @@ export default function BirthdayCake() {
                       className="relative"
                     >
                       <div
-                        className="w-3 h-5 rounded-full"
+                        className="rounded-full"
                         style={{
+                          width: 'clamp(8px, 2vw, 12px)',
+                          height: 'clamp(14px, 3vw, 20px)',
                           background: 'linear-gradient(to top, #ff6b35, #ffd700, #fff)',
                           animation: `candleFlicker ${0.8 + i * 0.15}s ease-in-out infinite`,
                           boxShadow: '0 0 8px 4px rgba(255, 165, 0, 0.3), 0 0 16px 8px rgba(255, 100, 0, 0.15)',
                         }}
                       />
-                      {/* Glow effect */}
                       <div
                         className="absolute -inset-2 rounded-full"
                         style={{
@@ -89,15 +104,16 @@ export default function BirthdayCake() {
                     </motion.div>
                   )}
 
-                  {/* Smoke on blow */}
+                  {/* Smoke */}
                   {candlesOut && (
                     <motion.div
                       initial={{ opacity: 0.6, y: 0 }}
                       animate={{ opacity: 0, y: -30 }}
                       transition={{ duration: 1.5 }}
-                      className="w-1.5 rounded-full"
+                      className="rounded-full"
                       style={{
-                        height: 20,
+                        width: 'clamp(4px, 1vw, 6px)',
+                        height: 'clamp(12px, 3vw, 20px)',
                         background: 'linear-gradient(to top, rgba(150,150,150,0.4), transparent)',
                       }}
                     />
@@ -105,10 +121,17 @@ export default function BirthdayCake() {
 
                   {/* Candle stick */}
                   <div
-                    className="w-2 rounded-t-sm"
+                    className="rounded-t-sm"
                     style={{
-                      height: 30,
-                      background: ['linear-gradient(to bottom, #ec4899, #f472b6)', 'linear-gradient(to bottom, #8b5cf6, #a78bfa)', 'linear-gradient(to bottom, #F4C430, #fde68a)', 'linear-gradient(to bottom, #ec4899, #f472b6)', 'linear-gradient(to bottom, #8b5cf6, #a78bfa)'][i],
+                      width: 'clamp(6px, 1.5vw, 8px)',
+                      height: 'clamp(20px, 5vw, 30px)',
+                      background: [
+                        'linear-gradient(to bottom, #ec4899, #f472b6)',
+                        'linear-gradient(to bottom, #8b5cf6, #a78bfa)',
+                        'linear-gradient(to bottom, #F4C430, #fde68a)',
+                        'linear-gradient(to bottom, #ec4899, #f472b6)',
+                        'linear-gradient(to bottom, #8b5cf6, #a78bfa)',
+                      ][i],
                     }}
                   />
                 </div>
@@ -116,78 +139,66 @@ export default function BirthdayCake() {
             </div>
 
             {/* Cake layers */}
-            {/* Top layer (frosting) */}
             <div
               className="relative rounded-t-2xl"
               style={{
-                height: 20,
+                height: 'clamp(14px, 3vw, 20px)',
                 background: 'linear-gradient(135deg, #f9a8d4, #f472b6)',
                 borderRadius: '16px 16px 0 0',
                 boxShadow: 'inset 0 2px 4px rgba(255,255,255,0.3)',
               }}
             >
-              {/* Frosting drips */}
-              {[20, 60, 100, 150, 200, 240].map((left, i) => (
+              {/* Frosting drips - fewer on mobile */}
+              {[0.07, 0.21, 0.36, 0.54, 0.71, 0.86].map((pct, i) => (
                 <div
                   key={i}
                   className="absolute rounded-b-full"
                   style={{
-                    left,
+                    left: `${pct * 100}%`,
                     top: '100%',
-                    width: 12 + (i % 3) * 4,
-                    height: 12 + (i % 2) * 8,
+                    width: `clamp(8px, 2vw, ${12 + (i % 3) * 4}px)`,
+                    height: `clamp(8px, 2vw, ${12 + (i % 2) * 8}px)`,
                     background: 'linear-gradient(to bottom, #f9a8d4, #f472b6)',
                   }}
                 />
               ))}
             </div>
 
-            {/* Layer 1 */}
             <div
               style={{
-                height: 50,
+                height: 'clamp(35px, 8vw, 50px)',
                 background: 'linear-gradient(to bottom, #fce4ec, #f8bbd0)',
                 boxShadow: 'inset 0 -2px 4px rgba(0,0,0,0.05)',
               }}
             />
 
-            {/* Middle frosting line */}
             <div
               style={{
-                height: 8,
+                height: 'clamp(5px, 1.5vw, 8px)',
                 background: 'linear-gradient(90deg, #CDB4DB, #F8BBD0, #CDB4DB)',
               }}
             />
 
-            {/* Layer 2 */}
             <div
               className="rounded-b-2xl"
               style={{
-                height: 55,
+                height: 'clamp(38px, 9vw, 55px)',
                 background: 'linear-gradient(to bottom, #fff3e0, #ffe0b2)',
                 borderRadius: '0 0 16px 16px',
                 boxShadow: '0 8px 30px rgba(200, 150, 200, 0.2)',
               }}
             >
-              {/* Decorative dots */}
-              <div className="flex justify-center gap-6 pt-4">
+              <div className="flex justify-center pt-2 sm:pt-4" style={{ gap: 'clamp(8px, 2vw, 24px)' }}>
                 {['💖', '⭐', '💖', '⭐', '💖'].map((d, i) => (
                   <motion.span
                     key={i}
-                    className="text-xs"
+                    style={{ fontSize: 'clamp(0.5rem, 1.5vw, 0.75rem)' }}
                     animate={
                       !candlesOut
-                        ? {
-                            y: [0, -2, 0],
-                            scale: [1, 1.1, 1],
-                          }
+                        ? { y: [0, -2, 0], scale: [1, 1.1, 1] }
                         : {}
                     }
-                    transition={{
-                      duration: 2,
-                      repeat: Infinity,
-                      delay: i * 0.2,
-                    }}
+                    transition={{ duration: 2, repeat: Infinity, delay: i * 0.2 }}
                   >
                     {d}
                   </motion.span>
@@ -195,12 +206,12 @@ export default function BirthdayCake() {
               </div>
             </div>
 
-            {/* Cake plate */}
+            {/* Plate */}
             <div
               className="mx-auto mt-1 rounded-full"
               style={{
                 width: '110%',
-                height: 12,
+                height: 'clamp(8px, 2vw, 12px)',
                 background: 'linear-gradient(to bottom, #e0e0e0, #bdbdbd)',
                 marginLeft: '-5%',
                 borderRadius: '0 0 50% 50% / 0 0 100% 100%',
@@ -210,7 +221,7 @@ export default function BirthdayCake() {
           </div>
         </motion.div>
 
-        {/* Blow candles button */}
+        {/* Button / Wish */}
         {!candlesOut ? (
           <motion.button
             initial={{ opacity: 0, y: 20 }}
@@ -219,8 +230,10 @@ export default function BirthdayCake() {
             onClick={blowCandles}
             whileHover={{ scale: 1.05, boxShadow: '0 8px 30px rgba(236, 72, 153, 0.3)' }}
             whileTap={{ scale: 0.95 }}
-            className="px-10 py-4 rounded-full text-white font-semibold text-lg cursor-pointer transition-all duration-300"
+            className="rounded-full text-white font-semibold cursor-pointer transition-all duration-300"
             style={{
+              padding: 'clamp(0.75rem, 2.5vw, 1rem) clamp(1.5rem, 5vw, 2.5rem)',
+              fontSize: 'clamp(0.9rem, 2.5vw, 1.125rem)',
               background: 'linear-gradient(135deg, #ec4899, #8b5cf6)',
               border: 'none',
               boxShadow: '0 4px 20px rgba(236, 72, 153, 0.25)',
@@ -239,29 +252,36 @@ export default function BirthdayCake() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="glass-strong rounded-2xl p-8 inline-block"
+                className="glass-strong rounded-2xl inline-block"
+                style={{ padding: 'clamp(1.25rem, 4vw, 2rem)' }}
               >
                 <motion.span
-                  className="text-5xl block mb-4"
+                  className="block mb-3 sm:mb-4"
+                  style={{ fontSize: 'clamp(2.5rem, 8vw, 3.5rem)' }}
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
                   🌟
                 </motion.span>
                 <h3
-                  className="text-2xl md:text-3xl font-bold mb-2"
+                  className="font-bold mb-2"
                   style={{
                     fontFamily: 'Playfair Display, serif',
                     background: 'linear-gradient(135deg, #ec4899, #F4C430)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
+                    fontSize: 'clamp(1.25rem, 4vw, 1.875rem)',
                   }}
                 >
                   Make a Wish ❤️
                 </h3>
                 <p
-                  className="text-base italic"
-                  style={{ color: '#4a2d5e', fontFamily: 'Dancing Script, cursive' }}
+                  className="italic"
+                  style={{
+                    color: '#4a2d5e',
+                    fontFamily: 'Dancing Script, cursive',
+                    fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+                  }}
                 >
                   "May every wish you make come true"
                 </p>

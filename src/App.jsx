@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import PasswordScreen from './components/PasswordScreen';
 import HeroSection from './components/HeroSection';
 import FloatingDecorations from './components/FloatingDecorations';
-import PhotoGallery from './components/PhotoGallery';
 import BirthdayLetter from './components/BirthdayLetter';
 import Timeline from './components/Timeline';
 import ReasonsCards from './components/ReasonsCards';
@@ -38,17 +37,6 @@ export default function App() {
               <HeroSection />
 
               {/* Divider */}
-              <div className="flex justify-center py-4">
-                <div
-                  className="w-24 h-0.5"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(244, 196, 48, 0.5), transparent)',
-                  }}
-                />
-              </div>
-
-              <PhotoGallery />
-
               <div className="flex justify-center py-4">
                 <div
                   className="w-24 h-0.5"

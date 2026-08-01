@@ -21,11 +21,14 @@ function PhotoPlaceholder({ index, caption }) {
       className="w-full h-full flex flex-col items-center justify-center"
       style={{ background: gradients[index % gradients.length] }}
     >
-      <span className="text-5xl mb-2">{emojis[index % emojis.length]}</span>
-      <p className="text-white text-sm font-medium px-4 text-center" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.2)' }}>
+      <span className="text-4xl sm:text-5xl mb-2">{emojis[index % emojis.length]}</span>
+      <p
+        className="text-white font-medium px-3 text-center"
+        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.2)', fontSize: 'clamp(0.7rem, 2.5vw, 0.875rem)' }}
+      >
         {caption}
       </p>
-      <p className="text-white text-xs mt-2 opacity-60">
+      <p className="text-white mt-1 opacity-60" style={{ fontSize: '0.65rem' }}>
         Replace in content.js
       </p>
     </div>
@@ -34,27 +37,49 @@ function PhotoPlaceholder({ index, caption }) {
 
 export default function PhotoGallery() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-60px' });
 
   return (
-    <section className="py-20 px-4 md:px-8" id="gallery" ref={ref}>
+    <section
+      className="px-4 sm:px-6 md:px-8"
+      style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)' }}
+      id="gallery"
+      ref={ref}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-14"
         >
-          <span className="text-4xl mb-3 block">📸</span>
-          <h2 className="section-title text-3xl md:text-5xl mb-3">Our Memories</h2>
-          <p className="text-base italic" style={{ color: '#4a2d5e', fontFamily: 'Dancing Script, cursive' }}>
+          <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 block">📸</span>
+          <h2
+            className="section-title mb-2 sm:mb-3"
+            style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
+          >
+            Our Memories
+          </h2>
+          <p
+            className="italic px-4"
+            style={{
+              color: '#4a2d5e',
+              fontFamily: 'Dancing Script, cursive',
+              fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
+            }}
+          >
             "Every picture holds a thousand beautiful words"
           </p>
         </motion.div>
 
-        {/* Photo grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        {/* Photo grid - 1 col on tiny, 2 col on small, 3 col on large */}
+        <div
+          className="grid gap-4 sm:gap-6 md:gap-8"
+          style={{
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))',
+          }}
+        >
           {PHOTOS.map((photo, i) => (
             <motion.div
               key={photo.id}
@@ -62,7 +87,7 @@ export default function PhotoGallery() {
               animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{
                 duration: 0.6,
-                delay: i * 0.15,
+                delay: i * 0.12,
                 type: 'spring',
                 stiffness: 150,
                 damping: 20,
@@ -88,7 +113,6 @@ export default function PhotoGallery() {
                   alt={photo.alt}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   onError={(e) => {
-                    // If image fails to load, hide it and show placeholder
                     e.target.style.display = 'none';
                     e.target.nextElementSibling.style.display = 'flex';
                   }}
@@ -105,24 +129,21 @@ export default function PhotoGallery() {
                     background: 'linear-gradient(to top, rgba(45, 27, 61, 0.5) 0%, transparent 60%)',
                   }}
                 >
-                  <motion.span
-                    initial={{ scale: 0 }}
-                    whileHover={{ scale: 1 }}
-                    className="text-3xl"
-                  >
-                    💖
-                  </motion.span>
+                  <span className="text-3xl">💖</span>
                 </div>
               </div>
 
               {/* Caption */}
-              <div className="p-4 text-center">
-                <p className="text-sm font-medium" style={{ color: '#4a2d5e' }}>
+              <div className="p-3 sm:p-4 text-center">
+                <p
+                  className="font-medium"
+                  style={{ color: '#4a2d5e', fontSize: 'clamp(0.75rem, 2vw, 0.875rem)' }}
+                >
                   {photo.caption}
                 </p>
               </div>
 
-              {/* Glow effect on hover */}
+              {/* Glow on hover */}
               <div
                 className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                 style={{

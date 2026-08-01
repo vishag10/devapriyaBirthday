@@ -20,114 +20,79 @@ export const WRONG_PASSWORD_MSG = "Oops! That's not the right birthday. Try agai
 export const WELCOME_SUBTITLE = "Someone special made a little surprise just for you.";
 
 // --- Hero Section ---
-export const HERO_SUBTITLE = "Today is all about celebrating someone truly wonderful.";
-
-// --- Photo Gallery ---
-// Replace the 'src' with your actual photo paths (put them in /public/photos/)
-export const PHOTOS = [
-  {
-    id: 1,
-    src: "/photos/memory1.jpg",
-    caption: "Our funniest moment 😂",
-    alt: "Funny memory together",
-  },
-  {
-    id: 2,
-    src: "/photos/memory2.jpg",
-    caption: "Best memories ever 💕",
-    alt: "Best memory together",
-  },
-  {
-    id: 3,
-    src: "/photos/memory3.jpg",
-    caption: "Always smiling 😊",
-    alt: "Smiling together",
-  },
-  {
-    id: 4,
-    src: "/photos/memory4.jpg",
-    caption: "Adventures together 🌟",
-    alt: "Adventure memory",
-  },
-  {
-    id: 5,
-    src: "/photos/memory5.jpg",
-    caption: "The best duo 👯‍♀️",
-    alt: "Best duo photo",
-  },
-  {
-    id: 6,
-    src: "/photos/memory6.jpg",
-    caption: "Forever grateful 💖",
-    alt: "Grateful memory",
-  },
-];
+export const HERO_SUBTITLE = "Today is all about celebrating the most amazing friend in the world!";
 
 // --- Birthday Letter ---
 export const BIRTHDAY_LETTER = `Dear Devapriya,
 
-Today is your special day, and I just wanted to remind you how amazing you are. Thank you for being such a wonderful friend. Your kindness, laughter, and support make life brighter for everyone around you.
+Happy 22nd Birthday, bestie! 🎉
 
-I hope this year brings endless happiness, success, unforgettable memories, and every little thing you've been wishing for.
+Where do I even begin? You're one of those rare people who make the world brighter just by being in it. Your laugh is contagious, your heart is golden, and honestly, life is so much more fun with you around.
 
-Never stop smiling because your smile has a way of making everyone around you happier.
+Thank you for every crazy conversation, every silly joke, every late-night talk, and every moment you've been there when it mattered the most. You don't just show up — you light up the room.
 
-Happy Birthday once again!
+I hope 22 treats you like the queen you are. May this year bring you all the happiness, adventure, love, and every little dream you've been secretly wishing for.
 
-With all my love ❤️`;
+Never change, okay? The world needs more people like you.
+
+Here's to more memories, more laughs, and more of us being unstoppable together! 🥂
+
+Happy Birthday once again, bestie!
+
+With tons of love ❤️`;
 
 // --- Timeline Milestones ---
 export const TIMELINE_EVENTS = [
   {
     emoji: "🎈",
-    title: "First Time We Met",
-    description: "The day our friendship story began. Little did we know how amazing this journey would be!",
+    title: "The Day We Met",
+    description: "And just like that, I found my person. Best plot twist ever!",
   },
   {
-    emoji: "😊",
-    title: "Funniest Memory",
-    description: "That time we couldn't stop laughing and everyone thought we were crazy. Pure gold!",
+    emoji: "😂",
+    title: "Our Funniest Moment",
+    description: "We laughed so hard we cried. My cheeks hurt for days. 10/10 would do it again!",
   },
   {
-    emoji: "📷",
-    title: "Best Selfie Together",
-    description: "We took so many tries but that one perfect shot was absolutely worth it!",
+    emoji: "🤝",
+    title: "When We Got Closer",
+    description: "From 'hi' to 'you're stuck with me forever.' No take-backs!",
   },
   {
     emoji: "☕",
-    title: "Favorite Hangout",
-    description: "Our go-to spot where we shared stories, dreams, and way too much coffee.",
+    title: "Our Favorite Hangout",
+    description: "Good vibes, great conversations, and way too much food. Our happy place!",
   },
   {
     emoji: "🎂",
-    title: "Today — Your 22nd Birthday!",
-    description: "Here we are, celebrating YOU! The most amazing person deserves the most amazing day.",
+    title: "Today — You Turn 22!",
+    description: "Here we are, celebrating the most wonderful human. You deserve ALL the cake! 🍰",
   },
 ];
 
 // --- Reasons You're Amazing ---
 export const REASONS = [
-  { emoji: "✨", quality: "Kind" },
-  { emoji: "🌸", quality: "Caring" },
-  { emoji: "💖", quality: "Supportive" },
-  { emoji: "😊", quality: "Beautiful Smile" },
-  { emoji: "🌈", quality: "Positive Energy" },
-  { emoji: "💪", quality: "Strong" },
-  { emoji: "🦋", quality: "Graceful" },
-  { emoji: "🌟", quality: "Inspiring" },
+  { emoji: "✨", quality: "Kind Heart" },
+  { emoji: "🌸", quality: "Always Caring" },
+  { emoji: "💪", quality: "Super Supportive" },
+  { emoji: "😊", quality: "Brightest Smile" },
+  { emoji: "🌈", quality: "Good Vibes Only" },
+  { emoji: "🦋", quality: "Beautiful Soul" },
+  { emoji: "🔥", quality: "Totally Unstoppable" },
+  { emoji: "🌟", quality: "One in a Million" },
 ];
 
 // --- Birthday Wishes ---
 export const BIRTHDAY_WISHES = [
-  "May all your dreams come true. ✨",
-  "You deserve endless happiness. 🌸",
-  "Keep smiling forever. 😊",
-  "Have the best birthday ever! 🎂",
-  "The world is better because of you. 🌍",
-  "Here's to 22 years of being amazing! 🥂",
+  "May every dream you chase say 'yes' to you this year! ✨",
+  "You deserve all the happiness in the world and then some. 🌸",
+  "Keep being the incredible human you are — the world needs your sparkle! 💫",
+  "22 is going to be YOUR year, I just know it! 🎂",
+  "Wishing you endless adventures, belly laughs, and zero bad days. 🌈",
+  "Here's to 22 — may it be as amazing as you are, bestie! 🥂",
 ];
 
 // --- Final Section ---
-export const THANK_YOU_MESSAGE = "Thank you for being such a wonderful part of my life.";
+export const THANK_YOU_MESSAGE = "Thank you for being the kind of friend everyone wishes they had.";
 export const FINAL_SURPRISE_MESSAGE =
-  "No matter where life takes us, I hope you always keep smiling. Happy Birthday once again, Devapriya! You mean the world to me. 💕";
+  "No matter where life takes us, no matter how far apart we are, you'll always be my favorite person to laugh with. Keep shining, keep smiling, and keep being unapologetically YOU. Happy Birthday, Devapriya — the world is so lucky to have you! 💕";

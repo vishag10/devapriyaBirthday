@@ -2,7 +2,7 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 import { BIRTHDAY_WISHES } from '../data/content';
 
-function TypingText({ text, delay = 0, isActive }) {
+function TypingText({ text, isActive }) {
   const [displayed, setDisplayed] = useState('');
   const [done, setDone] = useState(false);
 
@@ -17,21 +17,17 @@ function TypingText({ text, delay = 0, isActive }) {
     setDisplayed('');
     setDone(false);
 
-    const startTimeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        i++;
-        setDisplayed(text.slice(0, i));
-        if (i >= text.length) {
-          clearInterval(interval);
-          setDone(true);
-        }
-      }, 50);
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(text.slice(0, i));
+      if (i >= text.length) {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, 50);
 
-      return () => clearInterval(interval);
-    }, delay);
-
-    return () => clearTimeout(startTimeout);
-  }, [text, delay, isActive]);
+    return () => clearInterval(interval);
+  }, [text, isActive]);
 
   return (
     <span>
@@ -43,48 +39,59 @@ function TypingText({ text, delay = 0, isActive }) {
 
 export default function BirthdayWishes() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-80px' });
   const [activeIndex, setActiveIndex] = useState(-1);
 
   useEffect(() => {
     if (!isInView) return;
 
     let current = 0;
+    let timeoutId;
+
     const showNext = () => {
       setActiveIndex(current);
       current++;
       if (current < BIRTHDAY_WISHES.length) {
-        // Calculate delay based on text length
         const textLength = BIRTHDAY_WISHES[current - 1].length;
-        const typingTime = textLength * 50 + 800; // typing + pause
-        setTimeout(showNext, typingTime);
+        const typingTime = textLength * 50 + 800;
+        timeoutId = setTimeout(showNext, typingTime);
       }
     };
 
-    const startTimer = setTimeout(showNext, 500);
-    return () => clearTimeout(startTimer);
+    timeoutId = setTimeout(showNext, 500);
+    return () => clearTimeout(timeoutId);
   }, [isInView]);
 
   return (
-    <section className="py-20 px-4 md:px-8" id="wishes" ref={ref}>
+    <section
+      className="px-4 sm:px-6 md:px-8"
+      style={{ paddingTop: 'clamp(3rem, 6vw, 5rem)', paddingBottom: 'clamp(3rem, 6vw, 5rem)' }}
+      id="wishes"
+      ref={ref}
+    >
       <div className="max-w-3xl mx-auto">
         {/* Section title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-14"
+          className="text-center mb-8 sm:mb-14"
         >
-          <span className="text-4xl mb-3 block">🌟</span>
-          <h2 className="section-title text-3xl md:text-5xl mb-3">Birthday Wishes</h2>
+          <span className="text-3xl sm:text-4xl mb-2 sm:mb-3 block">🌟</span>
+          <h2
+            className="section-title mb-2 sm:mb-3"
+            style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
+          >
+            Birthday Wishes
+          </h2>
         </motion.div>
 
         {/* Wishes container */}
-        <div className="space-y-6">
+        <div className="space-y-4 sm:space-y-6">
           {BIRTHDAY_WISHES.map((wish, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, x: -30 }}
+              initial={{ opacity: 0, x: -20 }}
               animate={
                 i <= activeIndex
                   ? { opacity: 1, x: 0 }
@@ -95,8 +102,9 @@ export default function BirthdayWishes() {
                 type: 'spring',
                 stiffness: 120,
               }}
-              className="rounded-2xl p-5 md:p-6"
+              className="rounded-xl sm:rounded-2xl"
               style={{
+                padding: 'clamp(0.875rem, 3vw, 1.5rem)',
                 background: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
@@ -105,16 +113,14 @@ export default function BirthdayWishes() {
                 display: i <= activeIndex ? 'block' : 'none',
               }}
             >
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-3 sm:gap-4">
                 {/* Star icon */}
                 <motion.span
-                  className="text-2xl flex-shrink-0 mt-0.5"
+                  className="flex-shrink-0 mt-0.5"
+                  style={{ fontSize: 'clamp(1.25rem, 3.5vw, 1.5rem)' }}
                   animate={
                     i === activeIndex
-                      ? {
-                          rotate: [0, 360],
-                          scale: [1, 1.3, 1],
-                        }
+                      ? { rotate: [0, 360], scale: [1, 1.3, 1] }
                       : {}
                   }
                   transition={{ duration: 1 }}
@@ -124,11 +130,11 @@ export default function BirthdayWishes() {
 
                 {/* Wish text */}
                 <p
-                  className="text-base md:text-lg italic leading-relaxed"
+                  className="italic leading-relaxed"
                   style={{
                     color: '#2d1b3d',
                     fontFamily: 'Dancing Script, cursive',
-                    fontSize: '1.3rem',
+                    fontSize: 'clamp(1rem, 3vw, 1.3rem)',
                   }}
                 >
                   {i === activeIndex ? (
