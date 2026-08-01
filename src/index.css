@@ -1,0 +1,322 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+/* ============================================
+   TAILWIND V4 THEME
+   ============================================ */
+@theme {
+  --color-pink: #F8BBD0;
+  --color-pink-dark: #f48fb1;
+  --color-lavender: #CDB4DB;
+  --color-lavender-dark: #ab93c2;
+  --color-peach: #FFD6A5;
+  --color-peach-dark: #ffb74d;
+  --color-gold: #F4C430;
+  --color-gold-light: #fde68a;
+  --color-dark: #2d1b3d;
+  --color-dark-soft: #4a2d5e;
+  --font-family-heading: 'Playfair Display', serif;
+  --font-family-body: 'Inter', sans-serif;
+  --font-family-script: 'Dancing Script', cursive;
+}
+
+/* ============================================
+   ROOT VARIABLES & BASE
+   ============================================ */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.25);
+  --glass-shadow: rgba(200, 150, 200, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-body);
+  background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 25%, #fff3e0 50%, #fce4ec 75%, #f3e5f5 100%);
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite;
+  color: var(--color-dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+}
+
+/* ============================================
+   GRADIENT ANIMATION
+   ============================================ */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  25% { background-position: 50% 0%; }
+  50% { background-position: 100% 50%; }
+  75% { background-position: 50% 100%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+.glass {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow:
+    0 8px 32px rgba(200, 150, 200, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px rgba(200, 150, 200, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   FLOATING DECORATION ANIMATIONS
+   ============================================ */
+@keyframes floatUp {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes floatUpSlow {
+  0% {
+    transform: translateY(110vh) translateX(0px) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(50vh) translateX(30px) scale(1);
+  }
+  90% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-20vh) translateX(-20px) scale(0.6);
+    opacity: 0;
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes gentleFloatAlt {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+}
+
+/* ============================================
+   SPARKLE ANIMATION
+   ============================================ */
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* ============================================
+   CANDLE FLICKER
+   ============================================ */
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1) translateY(0);
+    opacity: 1;
+  }
+  10% { transform: scaleY(1.1) scaleX(0.9) translateY(-1px); }
+  20% { transform: scaleY(0.95) scaleX(1.05) translateY(1px); }
+  30% { transform: scaleY(1.08) scaleX(0.92) translateY(-1px); }
+  40% { transform: scaleY(0.97) scaleX(1.03) translateY(0px); }
+  50% { transform: scaleY(1.05) scaleX(0.95) translateY(-2px); opacity: 0.9; }
+  60% { transform: scaleY(0.98) scaleX(1.02) translateY(0px); }
+  70% { transform: scaleY(1.03) scaleX(0.97) translateY(-1px); }
+  80% { transform: scaleY(1) scaleX(1) translateY(0px); opacity: 1; }
+  90% { transform: scaleY(1.06) scaleX(0.94) translateY(-1px); }
+}
+
+@keyframes candleGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px 4px rgba(255, 165, 0, 0.4), 0 0 16px 8px rgba(255, 100, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 12px 6px rgba(255, 165, 0, 0.6), 0 0 24px 12px rgba(255, 100, 0, 0.3);
+  }
+}
+
+/* ============================================
+   HEART PULSE
+   ============================================ */
+@keyframes heartPulse {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+  60% { transform: scale(1); }
+}
+
+/* ============================================
+   TYPING CURSOR
+   ============================================ */
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: var(--color-gold);
+  margin-left: 2px;
+  animation: blink 1s steps(1) infinite;
+  vertical-align: text-bottom;
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(248, 187, 208, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-pink), var(--color-lavender));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--color-lavender), var(--color-pink));
+}
+
+/* ============================================
+   SECTION TITLE GRADIENT
+   ============================================ */
+.section-title {
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  background: linear-gradient(135deg, #7c3aed, #ec4899, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   MUSIC BUTTON
+   ============================================ */
+.music-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 1.5rem;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 16px rgba(200, 150, 200, 0.2);
+}
+
+.music-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 24px rgba(200, 150, 200, 0.35);
+}
+
+.music-btn.playing {
+  animation: heartPulse 2s ease-in-out infinite;
+}
+
+/* ============================================
+   PASSWORD INPUT
+   ============================================ */
+input[type="password"]::placeholder {
+  color: rgba(45, 27, 61, 0.4);
+  font-style: italic;
+}
+
+input[type="password"]:focus {
+  outline: none;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .music-btn {
+    bottom: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+}
