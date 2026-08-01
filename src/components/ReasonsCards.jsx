@@ -29,10 +29,9 @@ export default function ReasonsCards() {
             Reasons You're Amazing
           </h2>
           <p
-            className="italic px-4"
+            className="font-medium px-4"
             style={{
               color: '#4a2d5e',
-              fontFamily: 'Dancing Script, cursive',
               fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
             }}
           >
@@ -102,7 +101,6 @@ export default function ReasonsCards() {
               <p
                 className="font-semibold"
                 style={{
-                  fontFamily: 'Playfair Display, serif',
                   color: '#2d1b3d',
                   fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
                 }}

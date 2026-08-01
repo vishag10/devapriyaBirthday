@@ -130,11 +130,10 @@ export default function BirthdayWishes() {
 
                 {/* Wish text */}
                 <p
-                  className="italic leading-relaxed"
+                  className="leading-relaxed font-medium"
                   style={{
                     color: '#2d1b3d',
-                    fontFamily: 'Dancing Script, cursive',
-                    fontSize: 'clamp(1rem, 3vw, 1.3rem)',
+                    fontSize: 'clamp(0.95rem, 2.5vw, 1.2rem)',
                   }}
                 >
                   {i === activeIndex ? (

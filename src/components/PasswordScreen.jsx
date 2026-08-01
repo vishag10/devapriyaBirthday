@@ -127,10 +127,7 @@ export default function PasswordScreen({ onSuccess }) {
             </motion.div>
 
             {/* Welcome title */}
-            <h1
-              className="text-2xl md:text-3xl font-bold mb-3"
-              style={{ fontFamily: 'Playfair Display, serif' }}
-            >
+            <h1 className="text-2xl md:text-3xl font-bold mb-3">
               <span
                 style={{
                   background: 'linear-gradient(135deg, #7c3aed, #ec4899)',
@@ -144,8 +141,8 @@ export default function PasswordScreen({ onSuccess }) {
 
             {/* Subtitle */}
             <p
-              className="text-sm md:text-base mb-8 italic"
-              style={{ color: '#4a2d5e', fontFamily: 'Dancing Script, cursive', fontSize: '1.1rem' }}
+              className="text-sm md:text-base mb-8 font-medium"
+              style={{ color: '#4a2d5e' }}
             >
               "{WELCOME_SUBTITLE}"
             </p>
@@ -238,7 +235,7 @@ export default function PasswordScreen({ onSuccess }) {
                 <p className="text-xs font-medium" style={{ color: '#b8860b' }}>
                   💡 Hint
                 </p>
-                <p className="text-xs mt-1 italic" style={{ color: '#4a2d5e' }}>
+                <p className="text-xs mt-1 font-normal" style={{ color: '#4a2d5e' }}>
                   "{PASSWORD_HINT}"
                 </p>
               </div>
@@ -270,7 +267,6 @@ export default function PasswordScreen({ onSuccess }) {
               transition={{ delay: 0.3 }}
               className="text-3xl font-bold"
               style={{
-                fontFamily: 'Playfair Display, serif',
                 background: 'linear-gradient(135deg, #ec4899, #8b5cf6, #F4C430)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
@@ -282,8 +278,8 @@ export default function PasswordScreen({ onSuccess }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="mt-3 text-lg"
-              style={{ color: '#4a2d5e', fontFamily: 'Dancing Script, cursive' }}
+              className="mt-3 text-lg font-medium"
+              style={{ color: '#4a2d5e' }}
             >
               Your surprise is loading... ✨
             </motion.p>

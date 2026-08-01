@@ -266,7 +266,6 @@ export default function BirthdayCake() {
                 <h3
                   className="font-bold mb-2"
                   style={{
-                    fontFamily: 'Playfair Display, serif',
                     background: 'linear-gradient(135deg, #ec4899, #F4C430)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -276,10 +275,9 @@ export default function BirthdayCake() {
                   Make a Wish ❤️
                 </h3>
                 <p
-                  className="italic"
+                  className="font-medium"
                   style={{
                     color: '#4a2d5e',
-                    fontFamily: 'Dancing Script, cursive',
                     fontSize: 'clamp(0.85rem, 2.5vw, 1rem)',
                   }}
                 >

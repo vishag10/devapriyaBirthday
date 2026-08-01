@@ -114,7 +114,6 @@ export default function HeroSection() {
           <span
             className="text-white font-bold"
             style={{
-              fontFamily: 'Playfair Display, serif',
               fontSize: 'clamp(2rem, 6vw, 3.25rem)',
             }}
           >
@@ -148,9 +147,8 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.6, duration: 0.8, type: 'spring' }}
-        className="font-bold mb-4 sm:mb-6 leading-tight px-2"
+        className="font-extrabold mb-4 sm:mb-6 leading-tight px-2"
         style={{
-          fontFamily: 'Playfair Display, serif',
           fontSize: 'clamp(1.8rem, 7vw, 4.5rem)',
         }}
       >
@@ -166,11 +164,10 @@ export default function HeroSection() {
         <br />
         <motion.span
           style={{
-            fontFamily: 'Dancing Script, cursive',
             background: 'linear-gradient(135deg, #ec4899, #F4C430)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
-            fontSize: '110%',
+            fontSize: '105%',
           }}
           animate={{ scale: [1, 1.02, 1] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
@@ -185,10 +182,9 @@ export default function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1, duration: 0.8 }}
-        className="max-w-sm sm:max-w-lg mx-auto mb-8 sm:mb-10 italic px-4"
+        className="max-w-sm sm:max-w-lg mx-auto mb-8 sm:mb-10 font-medium px-4"
         style={{
           color: '#4a2d5e',
-          fontFamily: 'Dancing Script, cursive',
           fontSize: 'clamp(1rem, 3.5vw, 1.3rem)',
         }}
       >

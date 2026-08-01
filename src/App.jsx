@@ -4,7 +4,6 @@ import PasswordScreen from './components/PasswordScreen';
 import HeroSection from './components/HeroSection';
 import FloatingDecorations from './components/FloatingDecorations';
 import BirthdayLetter from './components/BirthdayLetter';
-import Timeline from './components/Timeline';
 import ReasonsCards from './components/ReasonsCards';
 import BirthdayWishes from './components/BirthdayWishes';
 import BirthdayCake from './components/BirthdayCake';
@@ -47,17 +46,6 @@ export default function App() {
               </div>
 
               <BirthdayLetter />
-
-              <div className="flex justify-center py-4">
-                <div
-                  className="w-24 h-0.5"
-                  style={{
-                    background: 'linear-gradient(90deg, transparent, rgba(248, 187, 208, 0.5), transparent)',
-                  }}
-                />
-              </div>
-
-              <Timeline />
 
               <div className="flex justify-center py-4">
                 <div

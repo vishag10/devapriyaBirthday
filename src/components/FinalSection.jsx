@@ -43,13 +43,12 @@ export default function FinalSection() {
             className="section-title mb-3 sm:mb-4"
             style={{ fontSize: 'clamp(1.5rem, 5vw, 3rem)' }}
           >
-            Thank You, Bestie
+            Thank You, friend
           </h2>
           <p
-            className="italic max-w-md sm:max-w-lg mx-auto px-4"
+            className="font-medium max-w-md sm:max-w-lg mx-auto px-4"
             style={{
               color: '#4a2d5e',
-              fontFamily: 'Dancing Script, cursive',
               fontSize: 'clamp(1rem, 3vw, 1.4rem)',
             }}
           >
@@ -134,10 +133,9 @@ export default function FinalSection() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="leading-relaxed italic"
+                className="leading-relaxed font-medium"
                 style={{
                   color: '#2d1b3d',
-                  fontFamily: 'Dancing Script, cursive',
                   fontSize: 'clamp(1rem, 3vw, 1.4rem)',
                 }}
               >

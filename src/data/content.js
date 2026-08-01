@@ -8,10 +8,10 @@
 // --- Basic Info ---
 export const BIRTHDAY_GIRL_NAME = "Devapriya";
 export const BIRTHDAY_AGE = 22;
-export const BIRTHDAY_DATE = "August 2, 2026";
+export const BIRTHDAY_DATE = "August 2";
 
 // --- Password (format: DDMMYYYY) ---
-export const BIRTHDAY_PASSWORD = "02082026";
+export const BIRTHDAY_PASSWORD = "02082004";
 
 // --- Password Screen ---
 export const PASSWORD_HINT = "Think about the day the world became more beautiful.";
@@ -25,7 +25,7 @@ export const HERO_SUBTITLE = "Today is all about celebrating the most amazing fr
 // --- Birthday Letter ---
 export const BIRTHDAY_LETTER = `Dear Devapriya,
 
-Happy 22nd Birthday, bestie! 🎉
+Happy 22nd Birthday, friend! 🎉
 
 Where do I even begin? You're one of those rare people who make the world brighter just by being in it. Your laugh is contagious, your heart is golden, and honestly, life is so much more fun with you around.
 
@@ -37,7 +37,7 @@ Never change, okay? The world needs more people like you.
 
 Here's to more memories, more laughs, and more of us being unstoppable together! 🥂
 
-Happy Birthday once again, bestie!
+Happy Birthday once again, friend!
 
 With tons of love ❤️`;
 
@@ -89,7 +89,7 @@ export const BIRTHDAY_WISHES = [
   "Keep being the incredible human you are — the world needs your sparkle! 💫",
   "22 is going to be YOUR year, I just know it! 🎂",
   "Wishing you endless adventures, belly laughs, and zero bad days. 🌈",
-  "Here's to 22 — may it be as amazing as you are, bestie! 🥂",
+  "Here's to 22 — may it be as amazing as you are, friend! 🥂",
 ];
 
 // --- Final Section ---

@@ -86,11 +86,10 @@ export default function BirthdayLetter() {
                 className="leading-relaxed"
                 style={{
                   color: '#2d1b3d',
-                  fontFamily: i === 0 ? 'Dancing Script, cursive' : 'Inter, sans-serif',
                   fontSize: i === 0
                     ? 'clamp(1.2rem, 3.5vw, 1.6rem)'
                     : 'clamp(0.85rem, 2.5vw, 1.125rem)',
-                  fontWeight: i === 0 ? 600 : 400,
+                  fontWeight: i === 0 ? 700 : 400,
                 }}
               >
                 {para}
